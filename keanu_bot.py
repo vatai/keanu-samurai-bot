@@ -41,7 +41,7 @@ def convert_command(update, context):
 
 
 def sucks_handler(update, context, groups=None):
-    update.message.reply_text(f"{context.matches}")
+    update.message.reply_text(f"{context.matches[0].groups()}")
     update.message.reply_text(f"{groups} -- SUCKS!")
 
 
