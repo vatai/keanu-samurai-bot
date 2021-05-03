@@ -43,6 +43,8 @@ def convert_command(update, context):
 
 def sucks_handler(update, context, groups=None):
     match = context.matches[0].group(0)
+    for m in context.matches:
+        logger.warn(m)
     sux = random.choice(
         [
             "sux!",
