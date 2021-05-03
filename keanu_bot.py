@@ -43,8 +43,7 @@ def convert_command(update, context):
 
 def sucks_handler(update, context, groups=None):
     match = context.matches[0].group(0)
-    for m in context.matches:
-        logger.warn(m)
+    logger.warn(f"GROUPS: {groups}")
     sux = random.choice(
         [
             "sux!",
@@ -72,12 +71,11 @@ def main():
     dp = updater.dispatcher
 
     # Add handlers
-    mac_pattern = re.compile(r"(?i)mac")
     dp.add_handler(CommandHandler("convert", callback=convert_command))
     dp.add_handler(RegexHandler("foo", callback=foo_handler))
     dp.add_handler(
         RegexHandler(
-            pattern="(?i)mac|win",
+            pattern="(?i)(mac|win|apple)",
             callback=sucks_handler,
             pass_groups=True,
         )
