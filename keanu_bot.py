@@ -40,7 +40,7 @@ def convert_command(update, context):
     update.message.reply_text(reply)
 
 
-def sucks_handler(update, context, groups):
+def sucks_handler(update, groups, context):
     update.message.reply_text(f"SUCKS!")
 
 
@@ -61,7 +61,13 @@ def main():
     mac_pattern = re.compile(r"(?i)mac")
     dp.add_handler(CommandHandler("convert", callback=convert_command))
     dp.add_handler(RegexHandler("foo", callback=foo_handler))
-    dp.add_handler(RegexHandler(mac_pattern, callback=sucks_handler, pass_groups=True))
+    dp.add_handler(
+        RegexHandler(
+            mac_pattern,
+            callback=sucks_handler,
+            pass_groups=True,
+        )
+    )
     dp.add_error_handler(error)
 
     # updater.start_polling()
