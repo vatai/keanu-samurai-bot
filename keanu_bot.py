@@ -40,9 +40,20 @@ def convert_command(update, context):
     update.message.reply_text(reply)
 
 
-def sucks_handler(update, context, groups=None):
+def rulz_handler(update, context):
     match = context.matches[0].group(0)
-    logger.warn(f"GROUPS: {groups}")
+    rulz = random.choice(
+        [
+            "rulz!",
+            "is the best...",
+            "je najbolji",
+        ]
+    )
+    update.message.reply_text(f"{match} {rulz}!")
+
+
+def sucks_handler(update, context):
+    match = context.matches[0].group(0)
     sux = random.choice(
         [
             "sux!",
@@ -75,6 +86,12 @@ def main():
         MessageHandler(
             Filters.regex(".*foo.*"),
             callback=foo_handler,
+        )
+    )
+    dp.add_handler(
+        MessageHandler(
+            Filters.regex("(?i)(linux|c64)"),
+            callback=rulz_handler,
         )
     )
     dp.add_handler(
