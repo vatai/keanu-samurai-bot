@@ -43,7 +43,16 @@ def convert_command(update, context):
 
 def sucks_handler(update, context, groups=None):
     match = context.matches[0].group(0)
-    sux = random.choice(["sux!", "sucks...", "sucks ass", "is lame!", "BOOOOOO!!!!"])
+    sux = random.choice(
+        [
+            "sux!",
+            "sucks...",
+            "sucks ass",
+            "is lame!",
+            "BOOOOOO!!!!",
+            "je sranje :)",
+        ]
+    )
     update.message.reply_text(f"{match} {sux}!")
 
 
