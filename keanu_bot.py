@@ -45,6 +45,7 @@ def main():
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
 
+    # Add handlers
     dp.add_handler(CommandHandler("convert", callback=convert_command))
     dp.add_handler(RegexHandler("foo", callback=foo_handler))
     dp.add_error_handler(error)
