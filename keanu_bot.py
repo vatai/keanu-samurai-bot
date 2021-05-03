@@ -71,10 +71,10 @@ def main():
 
     # Add handlers
     dp.add_handler(CommandHandler("convert", callback=convert_command))
-    dp.add_handler(filters=MessageHandler(Filters.regex("foo"), callback=foo_handler))
+    dp.add_handler(MessageHandler(Filters.regex(".*foo.*"), callback=foo_handler))
     dp.add_handler(
         MessageHandler(
-            filters=Filters.regex("(?i)(mac|win|apple)"),
+            Filters.regex("(?i)(mac|win|apple)"),
             callback=sucks_handler,
             pass_groups=True,
         )
