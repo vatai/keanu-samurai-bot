@@ -40,8 +40,8 @@ def convert_command(update, context):
     update.message.reply_text(reply)
 
 
-def sucks_handler(update, context, groups):
-    update.message.reply_text(f"{groups[0]} SUCKS!")
+def sucks_handler(update, context):
+    update.message.reply_text(f"SUCKS!")
 
 
 def foo_handler(update, context):
