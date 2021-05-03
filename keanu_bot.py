@@ -18,7 +18,7 @@ TOKEN = os.environ.get("TOKEN")
 
 
 def convert_ft(num):
-    result = num * 0.453592
+    result = num * 30.48
     if result < 100:
         return f"{result} cm"
     else:
