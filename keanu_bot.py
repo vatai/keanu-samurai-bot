@@ -3,6 +3,7 @@
 
 import logging
 import os
+import random
 import re
 
 from telegram.ext import CommandHandler, RegexHandler, Updater
@@ -41,8 +42,9 @@ def convert_command(update, context):
 
 
 def sucks_handler(update, context, groups=None):
-    update.message.reply_text(f"{context.matches[0].group(0)}")
-    update.message.reply_text(f"{groups} -- SUCKS!")
+    match = context.matches[0].group(0)
+    sux = random.choice(["sux!", "sucks...", "sucks ass", "is lame!", "BOOOOOO!!!!"])
+    update.message.reply_text(f"{match} {sux}!")
 
 
 def foo_handler(update, context):
