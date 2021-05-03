@@ -4,9 +4,8 @@
 import logging
 import os
 import random
-import re
 
-from telegram.ext import CommandHandler, RegexHandler, Updater
+from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -72,10 +71,10 @@ def main():
 
     # Add handlers
     dp.add_handler(CommandHandler("convert", callback=convert_command))
-    dp.add_handler(RegexHandler("foo", callback=foo_handler))
+    dp.add_handler(filters=MessageHandler(Filters.regex("foo"), callback=foo_handler))
     dp.add_handler(
-        RegexHandler(
-            pattern="(?i)(mac|win|apple)",
+        MessageHandler(
+            filters=Filters.regex("(?i)(mac|win|apple)"),
             callback=sucks_handler,
             pass_groups=True,
         )
