@@ -17,9 +17,17 @@ PORT = int(os.environ.get("PORT", "5000"))
 TOKEN = os.environ.get("TOKEN")
 
 
+def convert_ft(num):
+    result = num * 0.453592
+    if result < 100:
+        return f"{result} cm"
+    else:
+        return f"{result/100.0} m"
+
+
 def convert_command(update, context):
     converters = {
-        "ft": lambda num: f"{num * 30.48} cm",
+        "ft": convert_ft,
         "lbs": lambda num: f"{num * 0.453592} kg",
     }
     try:
