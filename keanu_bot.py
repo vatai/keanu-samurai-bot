@@ -41,7 +41,7 @@ def convert_command(update, context):
 
 
 def sucks_handler(update, context):
-    update.message.reply_text(f"{context()}!")
+    update.message.reply_text(f"{context}!")
     update.message.reply_text(f"SUCKS!")
 
 
