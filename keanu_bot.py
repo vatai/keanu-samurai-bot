@@ -49,11 +49,9 @@ def main():
     dp.add_handler(RegexHandler("foo", callback=foo_handler))
     dp.add_error_handler(error)
 
-    updater.start_polling()
-    # # Start the Bot
-    # updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
-    # # updater.bot.setWebhook("https://yourherokuappname.herokuapp.com/" + TOKEN)
-    # updater.bot.setWebhook("https://yourherokuappname.herokuapp.com/" + TOKEN)
+    # updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
+    updater.bot.setWebhook("https://keanu-samurai-bot.herokuapp.com/" + TOKEN)
 
     updater.idle()
 
