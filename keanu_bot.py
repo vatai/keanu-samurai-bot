@@ -63,7 +63,7 @@ def main():
     dp.add_handler(RegexHandler("foo", callback=foo_handler))
     dp.add_handler(
         RegexHandler(
-            mac_pattern,
+            pattern="(?i)mac",
             callback=sucks_handler,
             pass_groups=True,
         )
