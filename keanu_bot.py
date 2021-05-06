@@ -96,7 +96,7 @@ def main():
     )
     dp.add_handler(
         MessageHandler(
-            Filters.regex("(?i)(mac|win|apple)"),
+            Filters.regex("(?i)( mac | win | apple )"),
             callback=sucks_handler,
         )
     )
